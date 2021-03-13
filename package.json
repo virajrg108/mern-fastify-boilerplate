@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/virajrg108/cool-lab/issues"
   },
-  "homepage": "https://github.com/virajrg108/cool-lab#readme"
+  "homepage": "https://github.com/virajrg108/cool-lab#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
 }
