@@ -1,17 +1,21 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
-// import history from '../../history';
+import { withRouter } from "react-router-dom"
 
-function Home() {
-  let history = useHistory();
-  const gotoLogin = () => {
-    history.push('/login');
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { history: this.props.history };
   }
-  return (
-    <div>Home
-      <button onClick={gotoLogin}>Go to login</button>
-    </div>
-  )
+  gotoLogin = () => {
+    this.state.history.push('/login');
+  }
+  render() {
+    return (
+      <div>Home
+        <button onClick={this.gotoLogin}>Go to login</button>
+      </div>
+    )
+  }
 }
 
-export default Home;
+export default withRouter(Home);
