@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
+import withSplashScreen from './withSplashScreen';
 
 function App() {
   return (
@@ -39,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default withSplashScreen(App);
