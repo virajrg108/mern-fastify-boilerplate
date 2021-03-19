@@ -1,7 +1,9 @@
 const fastify = require('fastify');
 const mongoose = require('mongoose');
-const noteRoutes = require('./routes/noteRoutes');
+const serveStatic = require('serve-static')
+const path = require('path')
 
+const noteRoutes = require('./routes/noteRoutes');
 //initialized Fastify App
 const app = fastify();
 
@@ -19,7 +21,7 @@ try {
 noteRoutes(app);
 
 //handle root route
-app.get('/', (request, reply) => {
+app.get('/hello', (request, reply) => {
   try {
     reply.send("Hello world!");
   } catch (e) {
@@ -28,7 +30,11 @@ app.get('/', (request, reply) => {
 })
 
 //set application listening on port 5000 of localhost
-app.listen(5000, (err, address) => {
+app.register(require('fastify-static'), {
+  // An absolute path containing static files to serve.
+  root: path.join(__dirname, '/client/build')
+}).
+listen(5000, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
