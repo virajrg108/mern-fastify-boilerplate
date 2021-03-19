@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/virajrg108/cool-lab#readme",
   "dependencies": {
+    "fastify": "^3.14.0",
+    "mongoose": "^5.12.1",
     "path": "^0.12.7"
   }
 }
